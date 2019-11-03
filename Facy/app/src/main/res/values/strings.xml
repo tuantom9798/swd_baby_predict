@@ -25,7 +25,7 @@
     <string name="info_group">Member of group: TuanDVSE05339, LuyenDDSE04999, BaoNTSE05601, DatTQSE05715</string>
 
     <!-- Tips to get subscription key shown on main activity-->
-    <string name="app_name">Microsoft Cognitive Services Face</string>
+    <string name="app_name">Facy</string>
     <string name="add_subscription_key_tip_title">Subscription Key is Needed</string>
     <string name="add_subscription_key_tip">Please put your subscription key with its corresponding endpoint to source file \"app/res/values/strings.xml\" to enable Face API calls.</string>
 
