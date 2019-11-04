@@ -3,7 +3,7 @@
 <resources>
     <!-- Please refer to https://azure.microsoft.com/en-us/services/cognitive-services/face/ to get your subscription key -->
     <!-- If you have subscription key with its corresponding endpoint, you can add them here to use the service -->
-    <string name="subscription_key">69a37186515046ce9360de3b0536181a</string>
+    <string name="subscription_key">57523469fc25491084f5577a64561215</string>
     <string name="endpoint">https://westcentralus.api.cognitive.microsoft.com/face/v1.0</string>
 
     <!-- Main activity -->
@@ -37,7 +37,6 @@
     <string name="found_baby">Success!Found Baby</string>
     <string name="not_found_baby">Not detect your face!Pls Insert truth image</string>
     <string name="same_gender">The same gender so can NOT have children </string>
-
 
 
     <!-- Baby Predict activity -->

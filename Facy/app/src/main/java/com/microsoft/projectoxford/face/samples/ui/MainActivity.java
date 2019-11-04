@@ -82,4 +82,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BabyPredictActivity.class);
         startActivity(intent);
     }
+
+    public void findSimilarFace(View view) {
+        Intent intent = new Intent(this, FindSimilarFaceActivity.class);
+        startActivity(intent);
+    }
+
 }
