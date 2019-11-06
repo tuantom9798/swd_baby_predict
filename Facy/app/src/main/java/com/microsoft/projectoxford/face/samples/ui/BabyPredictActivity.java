@@ -8,11 +8,14 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.microsoft.projectoxford.face.FaceServiceClient;
 import com.microsoft.projectoxford.face.contract.Face;
 import com.microsoft.projectoxford.face.samples.R;
@@ -411,6 +414,7 @@ public class BabyPredictActivity extends AppCompatActivity {
                 + "&skin=" + skinOfBaby;
         //Loading image using Picasso
         Picasso.get().load(urlImage).resize(50, 50).into(babyImage);
+        Toast.makeText(this,urlImage,Toast.LENGTH_LONG).show();
     }
 
     public void onRadioButtonGenderClicked(View view) {
@@ -419,11 +423,11 @@ public class BabyPredictActivity extends AppCompatActivity {
 
         // Check which radio button was clicked
         switch (view.getId()) {
-            case R.id.radioButton_light:
+            case R.id.radioButton_male:
                 if (checked)
                     genderOfBaby = "boy";
                 break;
-            case R.id.radioButton_dark:
+            case R.id.radioButton_female:
                 if (checked)
                     genderOfBaby = "girl";
                 break;
@@ -436,11 +440,11 @@ public class BabyPredictActivity extends AppCompatActivity {
 
         // Check which radio button was clicked
         switch (view.getId()) {
-            case R.id.radioButton_male:
+            case R.id.radioButton_light:
                 if (checked)
                     skinOfBaby = "light";
                 break;
-            case R.id.radioButton_female:
+            case R.id.radioButton_dark:
                 if (checked)
                     skinOfBaby = "dark";
                 break;
