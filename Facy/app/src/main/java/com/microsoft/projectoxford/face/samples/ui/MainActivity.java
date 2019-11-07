@@ -39,8 +39,11 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -69,8 +72,37 @@ public class MainActivity extends AppCompatActivity {
 
         //Loading image using Picasso
         Picasso.get().load(imageUrl).into(iv);
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        bottomNav.setSelectedItemId(R.id.nav_home);
 
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Class dirClass = null;
+                    switch (item.getItemId()) {
+                        case R.id.nav_home:
+                            break;
+                        case R.id.nav_baby:
+                            dirClass = BabyPredictActivity.class;
+                            break;
+                        case R.id.nav_you:
+                            dirClass = DetectionActivity.class;
+                            break;
+                        case R.id.nav_find:
+                            dirClass = FindSimilarFaceActivity.class;
+                            break;
+                    }
+                    if(dirClass != null) {
+                        Intent intent = new Intent(MainActivity.this, dirClass);
+                        startActivity(intent);
+                    }
+                    return false;
+                }
+            };
 
     public void detection(View view) {
         Intent intent = new Intent(this, DetectionActivity.class);

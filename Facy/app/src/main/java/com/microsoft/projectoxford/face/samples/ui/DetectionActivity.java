@@ -9,9 +9,11 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -135,8 +137,37 @@ public class DetectionActivity extends AppCompatActivity {
         setDetectButtonEnabledStatus(false);
 
         LogHelper.clearDetectionLog();
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        bottomNav.setSelectedItemId(R.id.nav_home);
+
     }
 
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Class dirClass = null;
+                    switch (item.getItemId()) {
+                        case R.id.nav_home:
+                            dirClass = MainActivity.class;
+                            break;
+                        case R.id.nav_baby:
+                            dirClass = BabyPredictActivity.class;
+                            break;
+                        case R.id.nav_you:
+                            break;
+                        case R.id.nav_find:
+                            dirClass = FindSimilarFaceActivity.class;
+                            break;
+                    }
+                    if(dirClass != null) {
+                        Intent intent = new Intent(DetectionActivity.this, dirClass);
+                        startActivity(intent);
+                    }
+                    return false;
+                }
+            };
     // Save the activity state when it's going to stop.
     @Override
     protected void onSaveInstanceState(Bundle outState) {

@@ -8,6 +8,10 @@
 
     <!-- Main activity -->
     <string name="detection">Detection</string>
+    <string name="home">Home</string>
+    <string name="baby">Your Baby</string>
+    <string name="you">You</string>
+    <string name="find">Find Similar</string>
     <string name="face_verification">Face to Face Verification</string>
     <string name="person_verification">Face to Person Verification</string>
     <string name="verification">Verification</string>

@@ -169,7 +169,8 @@
         android:id="@id/button_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/bottom_navigation"
+        android:paddingBottom="5dp"
         android:orientation="horizontal" >
 
         <Button
@@ -194,4 +195,11 @@
 
     </LinearLayout>
 
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="?android:attr/windowBackground"
+        android:layout_alignParentBottom="true"
+        />
 </RelativeLayout>
